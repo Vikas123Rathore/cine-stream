@@ -1,37 +1,69 @@
-import { useEffect, useState } from "react";
-import { searchMovies } from "../services/tmbd";
-import HeroSection from "../components/HeroSection";
+import { useEffect, useRef, useState } from 'react'
+import { searchMovies } from '../services/tmbd'
+import HeroSection from '../components/HeroSection'
+import MovieGrid from '../components/MovieGrid'
 
 const Home = () => {
-  const [movies, setMovies] = useState([]);
+  // Step 1: States
+  const [movies, setMovies] = useState([])
+  const [page, setPage] = useState(1)
+  const [totalResults, setTotalResults] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const sentinelRef = useRef(null)
+
+  const hasMore = movies.length < totalResults
+
+  const fetchMovies = async () => {
+    try {
+      setLoading(true)
+
+      const data = await searchMovies('batman', page)
+      const nextMovies = data.Search ?? []
+
+      setMovies((prev) => (page === 1 ? nextMovies : [...prev, ...nextMovies]))
+      setTotalResults(Number(data.totalResults ?? 0))
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await searchMovies("batman");
+    fetchMovies()
+  }, [page])
 
-        console.log("Movies:", data);
+  useEffect(() => {
+    if (!sentinelRef.current || loading || !hasMore) {
+      return
+    }
 
-        setMovies(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && hasMore) {
+          setPage((currentPage) => currentPage + 1)
+        }
+      },
+      { rootMargin: '300px' },
+    )
 
-    fetchData();
-  }, []);
+    observer.observe(sentinelRef.current)
+
+    return () => observer.disconnect()
+  }, [hasMore, loading])
 
   return (
     <>
       <HeroSection />
-
-      {movies.map((movie) => (
-        <div key={movie.imdbID}>
-          <h2>{movie.Title}</h2>
-        </div>
-      ))}
+      <MovieGrid movies={movies} />
+      <div ref={sentinelRef} className="h-10" />
+      {loading && (
+        <p className="pb-10 text-center text-gray-300">
+          Loading more movies...
+        </p>
+      )}
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
