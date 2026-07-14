@@ -1,12 +1,37 @@
-import React from 'react'
-import HeroSection from '../components/HeroSection'
+import { useEffect, useState } from "react";
+import { searchMovies } from "../services/tmbd";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
-  return (
-    <div>
-      <HeroSection/>
-    </div>
-  )
-}
+  const [movies, setMovies] = useState([]);
 
-export default Home
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await searchMovies("batman");
+
+        console.log("Movies:", data);
+
+        setMovies(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <HeroSection />
+
+      {movies.map((movie) => (
+        <div key={movie.imdbID}>
+          <h2>{movie.Title}</h2>
+        </div>
+      ))}
+    </>
+  );
+};
+
+export default Home;
