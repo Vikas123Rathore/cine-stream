@@ -20,7 +20,7 @@ const navigate=useNavigate()
   }
 
   return (
-    <div className="min-h-screen bg-black text-white px-8 py-10">
+    <div className="min-h-screen bg-black text-white px-8 py-10 mt-18">
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-2 mb-8 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition border border-gray-200"

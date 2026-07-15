@@ -4,12 +4,13 @@ import Home from '../pages/Home'
 import Fav from '../pages/Fav'
 import MovieDetail from '../components/MovieDetail'
 
-const Approutes = () => {
+const Approutes = ({ searchQuery }) => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home searchQuery={searchQuery} />} />
       <Route path="/fav" element={<Fav />} />
-      <Route path="/movie/:id" element={<MovieDetail/>} />
+      <Route path="/favorites" element={<Fav />} />
+      <Route path="/movie/:id" element={<MovieDetail />} />
     </Routes>
   )
 }
