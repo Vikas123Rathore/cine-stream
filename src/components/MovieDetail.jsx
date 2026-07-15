@@ -21,6 +21,7 @@ const navigate=useNavigate()
 
   return (
     <div className="min-h-screen bg-black text-white px-8 py-10 mt-18">
+      {/* button for moving back to home */}
       <button
         onClick={() => navigate("/")}
         className="flex items-center gap-2 mb-8 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition border border-gray-200"
@@ -28,6 +29,7 @@ const navigate=useNavigate()
         ← Back
       </button>
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        {/* poster image */}
         <img
           src={movie.Poster}
           alt={movie.Title}
@@ -35,6 +37,7 @@ const navigate=useNavigate()
         />
 
         <div>
+          {/* movie title */}
           <h1 className="text-5xl font-bold mb-4">{movie.Title}</h1>
 
           <p className="text-gray-300 mb-3">

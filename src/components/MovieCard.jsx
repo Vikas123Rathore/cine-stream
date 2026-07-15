@@ -30,7 +30,7 @@ const MovieCard = ({ movie }) => {
           <FaHeart size={24} className="text-red-500 text-xl cursor-pointer" />
         </button>
       </div>
-
+{/* title or year details */}
       <div className="p-4">
         <h2 className="text-xl font-bold text-white truncate">{movie.Title}</h2>
 

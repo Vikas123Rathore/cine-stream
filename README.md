@@ -1,16 +1,104 @@
-# React + Vite
+# 🎬 CineStream
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Movie Streaming web application built using React.js, Vite, Tailwind CSS, Axios, React Router, and OMDb API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- Movie Search
+- Infinite Scrolling
+- Debounced Search
+- Responsive UI
+- Movie Details Page
+- Wishlist (Favorites)
+- React Context API
+- React Router
+- Toast Notifications
+- Responsive Navbar
+- Modern Movie Cards
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Vite
+- Tailwind CSS
+- Axios
+- React Router DOM
+- React Icons
+- React Toastify
+- OMDb API
+
+---
+
+## 📂 Folder Structure
+
+src/
+
+│
+
+├── components/
+
+│ ├── HeroSection
+
+│ ├── MovieCard
+
+│ ├── MovieGrid
+
+│ ├── Navbar
+
+│ └── SearchBar
+
+│
+
+├── context/
+
+│ └── FavoriteContext
+
+│
+
+├── pages/
+
+│ ├── Home
+
+│ ├── Fav
+
+│ └── MovieDetails
+
+│
+
+├── routes/
+
+│ └── AppRoutes
+
+│
+
+├── services/
+
+│ └── tmdb.js
+
+│
+
+├── App.jsx
+
+└── main.jsx
+
+---
+
+## ⚙ Installation
+
+```bash
+npm install
+```
+
+## 🔗 Live Demo
+
+🌐 **Demo:** https://your-demo-link.netlify.app
+
+## 💻 GitHub Repository
+
+📂 **Source Code:** https://github.com/Vikas123Rathore/cine-stream
+
+---

@@ -10,6 +10,7 @@ const Navbar = ({ searchQuery, onSearchChange }) => {
   const navigate = useNavigate()
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-white/10 bg-slate-900/60 px-6 py-4 shadow-lg backdrop-blur-xl">
+      {/* logo for the navbar */}
       <div
         className="flex items-center  cursor-pointer"
         onClick={() => navigate('/')}

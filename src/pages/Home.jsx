@@ -55,7 +55,7 @@ const Home = ({ searchQuery }) => {
       isActive = false
     }
   }, [page, activeQuery])
-
+// for infinity scrolling
   useEffect(() => {
     if (!sentinelRef.current || loading || !hasMore) {
       return

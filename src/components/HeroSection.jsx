@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const HeroSection = () => {
   const navigate = useNavigate()
   return (
+    // Hero section
     <section className="w-full bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 py-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl">
@@ -26,7 +27,7 @@ const HeroSection = () => {
             <button className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-3 rounded-xl font-semibold transition">
               Browse Movies
             </button>
-
+            {/* button for wishlist item seeing */}
             <button
               className="border border-slate-700 hover:border-rose-500 hover:text-rose-400 text-slate-300 px-8 py-3 rounded-xl font-semibold transition cursor-pointer"
               onClick={() => navigate('/favorites')}
