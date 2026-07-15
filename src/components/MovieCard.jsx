@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
@@ -10,9 +11,7 @@ const MovieCard = ({ movie }) => {
       />
 
       <div className="p-4">
-        <h2 className="text-xl font-bold text-white truncate">
-          {movie.Title}
-        </h2>
+        <h2 className="text-xl font-bold text-white truncate">{movie.Title}</h2>
 
         <div className="flex justify-between items-center mt-3">
           <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
@@ -24,12 +23,14 @@ const MovieCard = ({ movie }) => {
           </span>
         </div>
 
-        <button className="w-full mt-5 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold py-2 rounded-lg transition">
-          View Details
-        </button>
+        <Link to={`/movie/${movie.imdbID}`}>
+          <button className="w-full mt-5 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold py-2 rounded-lg">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MovieCard;
+export default MovieCard

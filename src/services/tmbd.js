@@ -24,3 +24,14 @@ export const searchMovies = async (query, page = 1) => {
     throw error;
   }
 };
+export const getMovieDetails = async (imdbID) => {
+  const response = await axios.get(BASE_URL, {
+    params: {
+      apikey: API_KEY,
+      i: imdbID,
+      plot: "full",
+    },
+  });
+
+  return response.data;
+};
