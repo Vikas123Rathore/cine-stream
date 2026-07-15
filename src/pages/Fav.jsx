@@ -51,7 +51,7 @@ const Fav = () => {
                   onClick={() => removeFavorite(movie.imdbID)}
                   className="absolute top-3 right-3 bg-red-600 hover:bg-red-700 p-2 rounded-full transition"
                 >
-                  <FaTrash className="text-white" />
+                  <FaTrash className="text-white cursor-pointer" />
                 </button>
               </div>
 
