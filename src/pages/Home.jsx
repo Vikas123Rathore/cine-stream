@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { searchMovies } from '../services/tmbd'
+import { searchMovies } from '../services/ombd'
 import HeroSection from '../components/HeroSection'
 import MovieGrid from '../components/MovieGrid'
 import useDebounce from '../hooks/useDebounce'
@@ -55,7 +55,7 @@ const Home = ({ searchQuery }) => {
       isActive = false
     }
   }, [page, activeQuery])
-// for infinity scrolling
+  // for infinity scrolling
   useEffect(() => {
     if (!sentinelRef.current || loading || !hasMore) {
       return

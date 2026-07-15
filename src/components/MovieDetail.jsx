@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getMovieDetails } from '../services/tmbd'
+import { getMovieDetails } from '../services/ombd'
 
 const MovieDetail = () => {
   const { id } = useParams()
   const [movie, setMovie] = useState(null)
-const navigate=useNavigate()
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchMovie = async () => {
       const data = await getMovieDetails(id)
@@ -23,7 +23,7 @@ const navigate=useNavigate()
     <div className="min-h-screen bg-black text-white px-8 py-10 mt-18">
       {/* button for moving back to home */}
       <button
-        onClick={() => navigate("/")}
+        onClick={() => navigate('/')}
         className="flex items-center gap-2 mb-8 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition border border-gray-200"
       >
         ← Back
