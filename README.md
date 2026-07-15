@@ -95,7 +95,7 @@ npm install
 
 ## 🔗 Live Demo
 
-🌐 **Demo:** https://your-demo-link.netlify.app
+🌐 **Demo:** https://movie-with-cine-stream.netlify.app/favorites
 
 ## 💻 GitHub Repository
 
